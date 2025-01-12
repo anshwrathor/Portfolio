@@ -42,4 +42,24 @@ if (menuButton && menu) {
 } else {
   console.error('Menu button or menu element not found.');
 }
+
+  // Show menu when hovering over the button
+  menuButton.addEventListener('mouseover', () => {
+    clearTimeout(hideTimeout); // Cancel hide if triggered
+    menu.classList.add('open'); // Show menu
+  });
+
+  // Keep menu visible when hovering over it
+  menu.addEventListener('mouseover', () => {
+    clearTimeout(hideTimeout); // Cancel hide if triggered
+  });
+
+  // Hide menu with a delay when mouse leaves button or menu
+  [menuButton, menu].forEach(element => {
+    element.addEventListener('mouseleave', () => {
+      hideTimeout = setTimeout(() => {
+        menu.classList.remove('open'); // Hide menu
+      }, 200); // Delay of 300ms (adjust as needed)
+    });
+  });
 });
