@@ -24,7 +24,8 @@ This is my personal portfolio website where I display:
 ---
 
 ## **Live Demo**
-[Visit My Portfolio](https://anshwrathor.github.io/portfolio/)
+[Visit My Portfolio](https://anshwrathor.github.io/Portfolio/)
+
 
 ---
 
