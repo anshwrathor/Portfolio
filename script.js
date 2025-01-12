@@ -29,7 +29,7 @@ function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
 }
 
-// Wait for the DOM to fully load
+// Wait for DOM to fully load
 document.addEventListener('DOMContentLoaded', () => {
 const menuButton = document.getElementById('menu-button');
 const menu = document.getElementById('menu');
