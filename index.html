@@ -1,67 +1,349 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ansh's Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Pacifico&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header class="header">
-    <div class="container">
-      <h1>Welcome to <span>Ansh's Portfolio</span> 🎨✨</h1>
-      <p>Your go-to page for creativity, code, and fun! 🚀</p>
-      <button class="cta-button" onclick="showFunFact()">Click Me for a Fun Fact! 🎉</button>
-      <p id="fun-fact"></p>
-    </div>
-  </header>
+/* Global Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(45deg, #fdfbfb, #ebedee);
+  color: #333;
+  text-align: center; /* Center text horizontally */
+  transition: all 0.3s ease-in-out;
+}
 
-  <nav class="navbar">
-    <ul>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+.dark-mode {
+  background: #121212;
+  color: #fff;
+}
 
-  <section id="about" class="section about">
-    <h2>🌟 About Me</h2>
-    <p>Hi there! I'm <strong>Ansh</strong>, an aspiring software developer who loves blending creativity and technology. I enjoy building vibrant websites, exploring new tech, and learning cool tricks. 😎</p>
-    <p>When I'm not coding, you can find me lifting weights 🏋️‍♂️, binge-watching movies 🎥, or eating the spiciest food imaginable! 🌶️</p>
-  </section>
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #ffd700;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 1000;
+}
 
-  <section id="projects" class="section projects">
-    <h2>🛠️ My Projects</h2>
-    <div class="project-list">
-      <div class="project-card">
-        <h3>🌦️ Weather App</h3>
-        <p>React-based app that gives real-time weather updates. <a href="#">View on GitHub</a></p>
-      </div>
-      <div class="project-card">
-        <h3>📋 To-Do List App</h3>
-        <p>A simple app to manage your daily tasks. <a href="#">View on GitHub</a></p>
-      </div>
-      <div class="project-card">
-        <h3>🎨 Art Portfolio</h3>
-        <p>A colorful gallery to showcase your creative works. <a href="#">View on GitHub</a></p>
-      </div>
-    </div>
-  </section>
+/* Header Section */
+header {
+  text-align: center; /* Center text */
+  padding: 60px 20px;
+  background: white;
+  color: white;
+}
 
-  <section id="contact" class="section contact">
-    <h2>📬 Get In Touch</h2>
-    <p>Feel free to drop me an email or connect on my socials:</p>
-    <ul>
-      <li>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></li>
-      <li>GitHub: <a href="https://github.com/your-username">github.com/your-username</a></li>
-      <li>LinkedIn: <a href="#">linkedin.com/in/yourprofile</a></li>
-    </ul>
-  </section>
+/* Logo Styling */
+.logo img {
+  width: 240px;  /* Set the desired width */
+  height: auto;  /* Maintain aspect ratio */
+}
 
-  <footer class="footer">
-    <p>© 2024 Ansh Rathore | Made with ❤️</p>
-  </footer>
-</body>
-</html>
+/*---*/
+/* Navigation Bar */
+.navbar {
+  display: flex; /* Align items in a row */
+  justify-content: center; /* Center the items horizontally */
+  background: #333;
+  padding: 10px 0;
+}
+
+.navbar ul {
+  list-style: none; /* Remove the default dots */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Align items horizontally */
+  gap: 20px; /* Add spacing between items */
+}
+
+.navbar li {
+  display: inline; /* Ensure items appear in a line */
+}
+
+.navbar a {
+  text-decoration: none; /* Remove underline */
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ffd700; /* Highlight color on hover */
+}
+/*---*/
+
+header h1 {
+  margin: 0 auto;
+}
+
+header p {
+  max-width: 800px; /* Limit text width */
+  margin: 10px auto; /* Center horizontally */
+}
+
+/* Button Styles */
+.cta-button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  background-color: #686765;
+  border: none;
+  border-radius: 25px;
+  color: black;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+  background-color: #18f4ed;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0px 6px 10
+  px rgba(0, 0, 0, 0.15);
+}
+
+/* Styles for the menu */
+
+
+
+/* Show the menu when 'open' class is added */
+.menu.open {
+  display: block;
+  animation: fadeIn 0.3s ease-in; /* Adds fade-in effect */
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Styles for the menu button */
+
+.menu-button {
+  font-size: 28px; /* Larger font size for visibility */
+  cursor: pointer;
+  padding: 15px 30px; /* Wider padding for a rectangular button 3871dc */
+  background-color: #3871dc; /* Modern blue color */
+  color: white;
+  border: none;
+  border-radius: 12px; /* Rounded corners */
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds depth with shadow */
+  transition: background-color 0.3s ease, transform 0.2s; /* Smooth hover effect */
+ 
+  /* Centering the button */
+  position: absolute; /* Allows positioning relative to the page */
+  top: 30%; /* Vertically centers the button */
+  left: 45%; /* Horizontally centers the button */
+ 
+ 
+  /* Fix stacking issue */
+  z-index: 1000; /* Makes sure the button is above other elements */
+}
+
+.menu-button:hover {
+  background-color: #0c557f; /* Darker hover color */
+  transform: scale(1.1); /* Slightly enlarges button on hover */
+}
+
+.menu {
+  display: none; /* Initially hidden */
+  background-color: #5ae8ea; /* Updated color for a fresh look */
+  color: white;
+  list-style: none;
+  padding: 15px; /* Increased padding for better spacing */
+  margin: 0;
+  width: 200px; /* Slightly wider for better content fit */
+  border-radius: 8px; /* Rounded corners for modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+  position: absolute;
+  top: 60%; /* Positioned slightly below the button */
+  left: 50%; /* Centered horizontally */
+  transform: translate(-50%, -50%); /* Adjusts for centering */
+  text-align: center;
+  transition: all 0.3s ease-in-out; /* Smooth animation on show/hide */
+}
+
+.menu li {
+  padding: 12px;
+  border-bottom: 1px solid #444;
+}
+
+.menu li:last-child {
+  border-bottom: none;
+}
+
+.menu li:hover {
+  background-color: #428dd4;
+  cursor: pointer;
+  border-radius: 8px; /* Rounded corners for hover */
+}
+.menu li a {
+  text-decoration: none; /* Removes underline from links */
+  color: inherit; /* Inherits text color */
+  font-size: 18px; /* Modern font size */
+}
+
+.menu li a:hover {
+  color: #ffffff; /* Brighter text on hover */
+}
+
+
+
+/* About Section */
+.about {
+  text-align: center; /* Center text */
+}
+
+.about p {
+  max-width: 700px; /* Limit text width */
+  margin: 0 auto 20px; /* Center horizontally */
+}
+
+.profile-image {
+  margin-top: 20px;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-image:hover {
+  transform: scale(1.1);
+}
+
+/* Projects Section */
+.project-list {
+  display: flex;
+  justify-content: center; /* Center project cards */
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  width: 30%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+  font-size: 20px;
+  color: #2575fc;
+  font-weight: 400;
+}
+
+.project-card p {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+/* Contact Section */
+.contact-info {
+  display: inline-block; /* Center content */
+  text-align: left; /* Align text within the block */
+  margin: 0 auto;
+}
+
+.contact-info p {
+  margin: 10px 0;
+}
+
+.contact-info a {
+  color: #2575fc;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Section Styling */
+.section {
+  padding: 40px 20px;
+  margin: 0 auto;
+  background: white;
+  margin: 20px auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px; /* Limit section width */
+  text-align: center;
+}
+
+.section:hover {
+  background: #f0f8ff;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+} 
+
+/* Footer Section */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: white;
+}
+
+
+/* Global Dark Mode */
+.dark-mode {
+  background: #121212; /* Dark background */
+  color: #ffffff; /* White text */
+}
+
+/* Header in Dark Mode */
+.dark-mode header {
+  background: linear-gradient(45deg, #333, #444); /* Darker gradient for header */
+  color: white; /* White text */
+}
+
+/* Section Text in Dark Mode */
+.dark-mode .section {
+  background: #1a1a1a; /* Dark background for sections */
+  color: white; /* White text */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for contrast */
+}
+
+/* Project Card Text in Dark Mode */
+.dark-mode .project-card {
+  background: #262626; /* Darker card background */
+  color: white; /* White text */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+}
+
+/* Navbar in Dark Mode */
+.dark-mode .navbar {
+  background: #333; /* Darker navbar background */
+}
+
+.dark-mode .navbar a {
+  color: white; /* White links */
+}
+
+.dark-mode .navbar a:hover {
+  color: #ffd700; /* Keep hover effect color */
+}
+
+/* Footer in Dark Mode */
+.dark-mode footer {
+  background: #333; /* Darker footer background */
+  color: white; /* White text */
+}
