@@ -3,7 +3,7 @@ My Personal Portfolio Website Showcasing my skills, projects, and journey as an 
 
 ---
 
-🚀 **My Personal Portfolio Website**  
+**My Personal Portfolio Website**  
 Showcasing my skills, projects, and journey as an aspiring software developer.
 
 ---
