@@ -45,7 +45,7 @@ body.dark-mode #dark-mode-toggle:hover {
 
 /* Header Section */
 header {
-  position: relative;
+  position: sticky;
   height: 200px; /* Adjust as needed */
   padding: 0 20px; /* Add horizontal spacing for logo and menu button */
   display: flex;
@@ -60,7 +60,33 @@ header {
   padding: 20px;
 }
 
+/* Random Fact Button */
+#factButton {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
+#factButton:hover {
+  background-color: #0056b3;
+}
+
+/* Fact Display */
+#factDisplay {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  margin-top: 20px;
+  font-size: 20px;
+}
 .logo {
   position: absolute; /* Make it a positioned container */
   top: 10%; /* Distance from the top */

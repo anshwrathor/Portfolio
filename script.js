@@ -1,4 +1,4 @@
-function showFunFact() {
+
   const funFacts = [
   "I may look calm, but I’ve mentally rehearsed every conversation I’ll ever have. Twice. 🤔💬",
   "I can survive without water for 3 days but not without Wi-Fi for 3 hours. 📶🚨",
@@ -21,9 +21,12 @@ function showFunFact() {
   "I still don’t know what 50% of the emojis mean, but I use them anyway. 🤪🎉",
   "I thought adulting would be fun… turns out, it’s mostly emails and Googling 'What does APR mean?' 🧐📩",
   ];
-  const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
-  document.getElementById('fun-fact').textContent = randomFact;
-}
+  function showFunFact() {
+    const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+    document.getElementById('factButton').textcontent;
+    document.getElementById('factDisplay').textContent = randomFact;
+  }
+  
 
 function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
